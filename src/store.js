@@ -60,10 +60,9 @@ import { toast } from "react-toastify";
 
 const store = configureStore({
   reducer: {
-    auth: authReducer,
+  
     product: productReducer,
     ui: uiReducer,
-    sellerDetailsAndAddress: SellerDetailsAndAddressReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
