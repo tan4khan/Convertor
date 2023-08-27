@@ -1,28 +1,47 @@
-import { useState } from 'react'
-import './App.css'
+import { useState , useEffect } from 'react'
 import HomePage from './Component/HomePage'
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-
+import Nav from './Component/Nav';
 function App() {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#1976D2",
-      },
-      secondary: {
-        main: "#FFC107",
-      },
-    },
-    // Other theme configurations...
-  });
+const [theme,setThemes] = useState("light")
+
+useEffect(() => {
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (prefersDarkScheme) {
+    setThemes("dark");
+  } else {
+    setThemes("light");
+  }
+}, []);
+
+
+
+useEffect(()=>{
+  
+
+  if(theme === "dark"){
+    document.documentElement.classList.add("dark")
+  }else{
+    document.documentElement.classList.remove("dark")
+  }
+
+},[theme])
+
+
+const handleMode = () =>{
+  setThemes(theme === "dark" ? "light" : "dark")
+}
 
 
   return (
     <>
-    <ThemeProvider theme={theme}>
-     <HomePage/>
-     </ThemeProvider>
+    <div className="h-screen" >
+      <Nav handleMode={handleMode} theme={theme}/>
+     <HomePage handleMode={handleMode}/>
+
+    </div>
+
+   
     </>
   )
 }

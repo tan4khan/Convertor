@@ -1,21 +1,18 @@
 import React from 'react'
-import { Box,Typography,styled } from '@mui/material';
 
 
-
-const StyledBox = styled(Box)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.secondary.main,
-    // padding: theme.spacing(2),
-    width:"100%",
-    height:"100vh",
-    borderRadius: theme.shape.borderRadius,
-  }))
-const HomePage = () => {
+const HomePage = ({handleMode}) => {
   return (
-  <StyledBox>
-<Typography variant='h6'>Hii</Typography>
-  </StyledBox>
+    <div className='bg-stone-200 dark:bg-black h-screen over flex justify-center items-center' >
+    
+<div className='text-center'><span>Uplaod your photo</span>
+<div className='border-dashed  border-2 rounded-md bg-blue-200 h-80 w-80'>
+
+</div>
+
+</div>
+
+    </div>
   )
 }
 
