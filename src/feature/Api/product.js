@@ -8,7 +8,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
     getAllProduct: builder.query({
       query: (filter) => {
         return {
-          url: `${PRODUCT_URL}?${filter}`,
+          url: `${USERS_URL}?${filter}`,
           method: "GET",
         };
       },
