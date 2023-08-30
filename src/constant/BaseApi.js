@@ -1,4 +1,3 @@
-const BASEURL = "http://127.0.1:5173"
-
+const BASEURL = import.meta.env.VITE_API_URL;
 
 export default BASEURL;
